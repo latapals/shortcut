@@ -1,5 +1,5 @@
 # Shortcut
-Shortcut is a little library to help making shortcut handling easier and more flexible.
+Shortcut is a little library to help make shortcut handling easier and more flexible.
 
 ## Why use Shortcut?
 Normally, to handle shortcuts, the go-to method is to just check `event` like so:
