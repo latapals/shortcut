@@ -52,6 +52,9 @@ new Shortcut({ keys: ["F2", "E"] }, event => {
 })
 ```
 
+### Killing a Shortcut
+You can easily kill a Shortcut by calling it's `kill()` method.
+
 ## Credits
 This library was made by [Aetinx](https://aetinx.lata.dev) for Latapals.
 
