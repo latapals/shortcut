@@ -13,7 +13,7 @@ class Shortcut {
   }
   
   kd(event) {
-    let keys = this.prompt.keys.map(key => key.toLowerCase())
+    let keys = this.prompt.keys ? this.prompt.keys.map(key => key.toLowerCase()) : []
     this.prompt.keys = keys
     if (this.prompt.keys.includes(event.key.toLowerCase())) {
       this.pressedKeys.add(event.key.toLowerCase())
