@@ -57,7 +57,3 @@ You can easily kill a Shortcut by calling it's `kill()` method.
 
 ## Credits
 This library was made by [Aetinx](https://aetinx.lata.dev) for Latapals.
-
-Licensed under [CC BY-ND 4.0](http://creativecommons.org/licenses/by-nd/4.0/).
-
-![CC BY-ND](https://licensebuttons.net/l/by-nd/4.0/88x31.png)
