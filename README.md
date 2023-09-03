@@ -16,7 +16,7 @@ But this method has some flaws:
 * **You can accidentally allow extra keys**, like Shift or Alt, if you don't make sure that they're false.
 
 ## How to use Shortcut
-Using Shortcut is easy once you understand how to what values you can pass to it's prompt object:
+Using Shortcut is easy once you understand what values you can pass to it's prompt object:
 
 **`alt`, `control`, `meta`, `shift`**: These are the special keys in a normal KeyboardEvent.
 * `true`: This key must be pressed for the function to fire.
