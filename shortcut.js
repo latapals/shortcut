@@ -25,7 +25,7 @@ class Shortcut {
     }
     
     let hasAllKeys = this.prompt.keys.every(key => this.pressedKeys.has(key))
-    let hasAllModifiers = Object.keys(map).every(key => this.prompt.implict ? (this.pressedModifiers.has(key) === this.prompt[key] || this.prompt[key] == null) : (!!this.pressedModifiers.has(key) === !!this.prompt[key] || this.prompt[key] === null))
+    let hasAllModifiers = Object.keys(map).every(key => this.prompt.implicit ? (this.pressedModifiers.has(key) === this.prompt[key] || this.prompt[key] == null) : (!!this.pressedModifiers.has(key) === !!this.prompt[key] || this.prompt[key] === null))
         
     if (hasAllKeys && hasAllModifiers && (this.prompt.repeat ? true : !this.doneOnce)) {
       this.callback(event)
