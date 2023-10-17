@@ -10,6 +10,34 @@ class Shortcut {
     
     document.addEventListener("keydown", this.boundKd)
     document.addEventListener("keyup", this.boundKu)
+    [
+      "focusin",
+      "focusout",
+      "blur",
+      "click",
+      "mousedown",
+      "mouseup",
+      "mouseenter",
+      "mouseleave",
+      "mouseover",
+      "mouseout",
+      "change",
+      "submit",
+      "reset",
+      "select",
+      "contextmenu",
+      "touchstart",
+      "touchend",
+      "touchcancel",
+      "pointerdown",
+      "pointerup",
+      "pointercancel",
+      "dragstart",
+      "dragend",
+      "scroll",
+      "resize",
+      "visibilitychange"
+    ].forEach(item => document.addEventListener(item, this.boundKu))
   }
   
   kd(event) {
