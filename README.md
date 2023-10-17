@@ -21,12 +21,12 @@ Using Shortcut is easy once you understand what values you can pass to it's prom
 **`alt`, `control`, `meta`, `shift`**: These are the special keys in a normal KeyboardEvent.
 * `true`: This key must be pressed for the function to fire.
 * `null` or `undefined`: It doesn't matter if this key is pressed down or not.
-  * When `implict` is not set to `true`, `undefined` is regarded as `false`.
+  * When `implicit` is not set to `true`, `undefined` is regarded as `false`.
 * `false`: This key must NOT be pressed for the callback function to fire.
 
 **`keys`**: An array of normal keys that are required. Like `event.key`, except case-insensitive.
 
-**`implict`**: If true, special keys that are `undefined` will be allowed.
+**`implicit`**: If true, special keys that are `undefined` will be allowed.
 
 **`repeat`**: When `true`, the shortcut can repeat when held down.
 
@@ -40,7 +40,7 @@ new Shortcut({ control: true, keys: ["k"] }, () => {
 
 Another example that fires when <kbd>A</kbd> is pressed once:
 ```js
-new Shortcut({ keys: ["a"], implict: true }, event => {
+new Shortcut({ keys: ["a"], implicit: true }, event => {
   // Code goes here
 })
 ```
