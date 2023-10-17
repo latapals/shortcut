@@ -10,7 +10,8 @@ class Shortcut {
     
     document.addEventListener("keydown", this.boundKd)
     document.addEventListener("keyup", this.boundKu)
-    [
+
+    let extras = [
       "focusin",
       "focusout",
       "blur",
@@ -37,7 +38,8 @@ class Shortcut {
       "scroll",
       "resize",
       "visibilitychange"
-    ].forEach(item => document.addEventListener(item, this.boundKu))
+    ]
+    extras.forEach(item => document.addEventListener(item, this.boundKu))
   }
   
   kd(event) {
