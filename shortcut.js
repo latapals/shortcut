@@ -1,3 +1,10 @@
+let _shortcutExitEventTypes = [
+  "focusin",
+  "focusout",
+  "blur",
+  "visibilitychange"
+]
+  
 class Shortcut {  
   constructor(prompt, callback) {
     this.prompt = prompt
@@ -7,56 +14,27 @@ class Shortcut {
     this.boundKd = this.kd.bind(this)
     this.boundKu = this.ku.bind(this)
     this.doneOnce = false
-    
+
     document.addEventListener("keydown", this.boundKd)
     document.addEventListener("keyup", this.boundKu)
-
-    let extras = [
-      "focusin",
-      "focusout",
-      "blur",
-      "click",
-      "mousedown",
-      "mouseup",
-      "mouseenter",
-      "mouseleave",
-      "mouseover",
-      "mouseout",
-      "change",
-      "submit",
-      "reset",
-      "select",
-      "contextmenu",
-      "touchstart",
-      "touchend",
-      "touchcancel",
-      "pointerdown",
-      "pointerup",
-      "pointercancel",
-      "dragstart",
-      "dragend",
-      "scroll",
-      "resize",
-      "visibilitychange"
-    ]
-    extras.forEach(item => document.addEventListener(item, this.boundKu))
+    _shortcutExitEventTypes.forEach(item => document.addEventListener(item, this.reset))
   }
-  
+
   kd(event) {
     let keys = this.prompt.keys ? this.prompt.keys.map(key => key.toLowerCase()) : []
     this.prompt.keys = keys
     if (this.prompt.keys.includes(event.key.toLowerCase())) {
       this.pressedKeys.add(event.key.toLowerCase())
     }
-    
+
     let map = { alt: "Alt", control: "Control", meta: "Meta", shift: "Shift" }
     for (let [key, value] of Object.entries(map)) {
       if (event.key == value) this.pressedModifiers.add(key)
     }
-    
+
     let hasAllKeys = this.prompt.keys.every(key => this.pressedKeys.has(key))
     let hasAllModifiers = Object.keys(map).every(key => this.prompt.implicit ? (this.pressedModifiers.has(key) === this.prompt[key] || this.prompt[key] == null) : (!!this.pressedModifiers.has(key) === !!this.prompt[key] || this.prompt[key] === null))
-        
+
     if (hasAllKeys && hasAllModifiers && (this.prompt.repeat ? true : !this.doneOnce)) {
       this.callback(event)
       this.doneOnce = true
@@ -71,7 +49,13 @@ class Shortcut {
     }
     this.doneOnce = false
   }
-  
+
+  reset() {
+    this.pressedKeys.clear()
+    this.pressedModifiers.clear()
+    this.doneOnce = false
+  }
+
   kill() {
     document.removeEventListener("keydown", this.boundKd)
     document.removeEventListener("keyup", this.boundKu)
