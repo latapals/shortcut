@@ -51,8 +51,8 @@ class Shortcut {
   }
 
   reset() {
-    this.pressedKeys.clear()
-    this.pressedModifiers.clear()
+    this.pressedKeys?.clear()
+    this.pressedModifiers?.clear()
     this.doneOnce = false
   }
 
